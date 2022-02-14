@@ -5593,6 +5593,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalKeywordList: {fileID: 11400000, guid: fd189bb1b37c1b84cad630f48cc46198, type: 2}
   voterBlocks: []
+  inputText: 0
+  floridaStatus: 0
 --- !u!1 &2062574029
 GameObject:
   m_ObjectHideFlags: 0
@@ -5688,6 +5690,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5469268080116214398, guid: 5db08117f3370f14482f365c6428698f, type: 3}
+--- !u!1 &2067769438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2067769440}
+  m_Layer: 0
+  m_Name: TestTextParser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2067769440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067769438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.2431164, y: 30.917927, z: -9.208302}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2086415620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1190152127165014277, guid: 5db08117f3370f14482f365c6428698f, type: 3}

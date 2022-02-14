@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.unity.burst": {
+      "version": "1.5.5",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.7",
       "depth": 0,
@@ -7,6 +16,16 @@
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "2.0.0",
         "com.unity.services.core": "1.0.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.collections": {
+      "version": "1.0.0-pre.5",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.5.4",
+        "com.unity.test-framework": "1.1.22"
       },
       "url": "https://packages.unity.com"
     },
@@ -42,6 +61,23 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.jobs": {
+      "version": "0.11.0-preview.6",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.collections": "1.0.0-pre.5",
+        "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.mathematics": {
+      "version": "1.2.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.nuget.newtonsoft-json": {
       "version": "2.0.0",
       "depth": 1,
@@ -55,6 +91,22 @@
       "source": "registry",
       "dependencies": {
         "com.unity.modules.unitywebrequest": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.sysroot": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.sysroot.linux-x86_64": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -90,6 +142,16 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.toolchain.win-x86_64-linux-x86_64": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "1.0.0",
+        "com.unity.sysroot.linux-x86_64": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.ugui": {
       "version": "1.0.0",
       "depth": 0,
@@ -97,6 +159,33 @@
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
+      }
+    },
+    "voxell.ai": {
+      "version": "file:UnityAI-master",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "voxell.nlp": {
+      "version": "file:UnityNLP-master",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "voxell.util": "1.1.0",
+        "voxell.ai": "1.0.0",
+        "com.unity.nuget.newtonsoft-json": "2.0.0"
+      }
+    },
+    "voxell.util": {
+      "version": "file:UnityUtil-master",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1",
+        "com.unity.collections": "1.0.0-pre.5",
+        "com.unity.jobs": "0.11.0-preview.6",
+        "com.unity.burst": "1.5.5"
       }
     },
     "com.unity.modules.ai": {
