@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class SessionManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GeneralKeywordsList generalKeywordList;
+    public GameObject[] voterBlocks;
+
+    public int inputText;
+    public int floridaStatus;
     void Start()
     {
         
