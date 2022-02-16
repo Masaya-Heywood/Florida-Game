@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/GeneralKeywordsList", order = 1)]
 public class GeneralKeywordsList : ScriptableObject
 {
-    public KeywordScriptObject[] list;
+    public KeywordScriptObject[] array;
 }

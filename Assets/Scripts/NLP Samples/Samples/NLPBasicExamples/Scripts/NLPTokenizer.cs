@@ -12,9 +12,11 @@ public class NLPTokenizer : MonoBehaviour
   private EnglishMaximumEntropyTokenizer tokenizer;
 
   [Button]
-  public void Tokenize()
+  public string[] Tokenize()
   {
     tokenizer = new EnglishMaximumEntropyTokenizer(FileUtilx.GetStreamingAssetFilePath(tokenizerModel));
     tokens = tokenizer.Tokenize(sentence);
+
+    return tokens;
   }
 }
