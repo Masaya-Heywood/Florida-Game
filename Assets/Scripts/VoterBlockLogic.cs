@@ -7,39 +7,57 @@ public class VoterBlockLogic : MonoBehaviour
     public string VoterBlockName;
     public string VoterBlockDefinition;
 
+    [Range(0,1)]
     [SerializeField]
-    [Range(0, 1)]
-    private static float policyBias, cultureBias, emotionalBias;
- 
+    private float policyBias, cultureBias, emotionalBias, radicalization;
+    //[/SerializeField]
+    //policy where 0 is public and 1 is private intrests
+    //culture where 0 is traditional and 1 is progressive
+    //emotional where 0 is positive and 1 is negative
 
-    private List<float> biases = new List<float>() { policyBias, cultureBias, emotionalBias };
+    private float happinessGainCap = 100.0f; //determines the hard cap on where players can gain happiness from DecideHappiness, base is 100
 
-    //policy where 0 is public and 1 is private intrests, 5 is good for both
-    //culture where 0 is traditional and 1 is progressive 5 is good for both
-    //emotional where 0 is positive and 1 is negative 5 is good for both
+    private List<float> biases;
 
-    //public List[] generalKeywordsList = new List;
+    private void Start()
+    {
+        biases = new List<float>() { policyBias, cultureBias, emotionalBias };
+    }
 
-    public float voterOverallHappiness;
+    //don't interact with the happinesss directly, use the input variable
+    private int voterOverallHappinessProperty;
+    //handles keeping the voter happiness to a maximum of 1000 and a minimum of -1000, dampens the impact of changing happiness based upon how happy the base currently is
+    public float voterOverallHappiness
+    {
+        get 
+        { 
+            return voterOverallHappinessProperty; 
+        }   
+        set 
+        {
+            voterOverallHappinessProperty = Mathf.RoundToInt(value); 
+        }  
+    }
+
 
 
     //how far is the number from the bias? use this number to influence happiness 
     //how happy are the people currently? use this number to dampen the impact of sentiment on happiness, the more happy voters are, the less they care about sentiment
-    //
-
-    float DecideHappiness(float sentiment, int typeSwitch)
+    public float DecideHappiness(float sentiment, int typeSwitch)
     {
-        // 1 == policy, 2 == culture, 3 == emotional
-        float happiness = 0;
-
+        // 0 == policy, 1 == culture, 2 == emotional
+        Vector2 parabolicVertex = new Vector2 (Mathf.RoundToInt(happinessGainCap), biases[typeSwitch]);
         //find the distance between .n and .n, the higher the number the worse it is
-        float affinityMod = 1 * (Mathf.Abs(sentiment - biases[typeSwitch]));
+        float affinityMod = (Mathf.Abs(sentiment - biases[typeSwitch]));
+        voterOverallHappiness = MathFunctions.VoterParabola(parabolicVertex, 2.0f);
+
+
 
         //happiness = 1 - affinity;
 
 
 
-    return happiness;
+        return voterOverallHappiness;
     }
 
     //randomly simulate happiness changing then give it to the over all happiness
@@ -50,7 +68,6 @@ public class VoterBlockLogic : MonoBehaviour
         voterOverallHappiness = voterOverallHappiness + happiness;
 
         return voterOverallHappiness;
-
-        Debug.Log(voterOverallHappiness);
     }
+
 }
