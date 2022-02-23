@@ -22,30 +22,12 @@ public class MathFunctions
         //a determines direction up or down based on negative or positive. larger number the tigher the parabola and vise versa
         var quadCoef = -Mathf.Abs(inputRadical); //make sure the input radical is always negative
 
-        var outputHappiness = inputRadical * Mathf.Pow((sentiment - happinessVertex.x), 2) + happinessVertex.y;
+        var outputHappiness = quadCoef * Mathf.Pow((sentiment - happinessVertex.x), 2) + happinessVertex.y;
 
-
-        var linearCoefFirstStep = 2 * quadCoef;
-        var linearCoef = happinessVertex.x * linearCoefFirstStep;
-
-        //f(happinessVertex.x) = inputRadical(happinessVertex.x) + linearCoef(happinessVertex.x) + c = happinessVertex.y
-        var secondStep = (quadCoef * Mathf.Pow(happinessVertex.x, 2)) + (linearCoef * happinessVertex.x);
-
-        var thirdStep = 0f;
-        //ensure that the transposition is using the correct value, negative or positive 
-        if (secondStep < 0)
+        if (outputHappiness < -100)
         {
-            thirdStep = Mathf.Abs(secondStep);
-        } else if (secondStep > 0)
-        {
-            thirdStep = -Mathf.Abs(secondStep);
+            outputHappiness = -100;
         }
-
-        var constTerm = thirdStep + happinessVertex.y;
-
-        /* - Creating the Parabola - */
-
-        Vector3 testOutput = new Vector3 (quadCoef, linearCoef, constTerm);
 
         return outputHappiness;
     }

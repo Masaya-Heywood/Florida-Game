@@ -2387,12 +2387,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22699893baa172548afc637c4ce32521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VoterBlockName: Some Pople
+  VoterBlockName: Super Moderate
   VoterBlockDefinition: 
   policyBias: 0.837
   cultureBias: 0.301
   emotionalBias: 0.116
-  radicalizationProperty: 52
+  radicalizationProperty: 21
 --- !u!1 &898431743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9167947695538521579, guid: 5db08117f3370f14482f365c6428698f, type: 3}
@@ -3234,7 +3234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22699893baa172548afc637c4ce32521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VoterBlockName: Some Pople
+  VoterBlockName: Hater
   VoterBlockDefinition: 
   policyBias: 0.226
   cultureBias: 0.469
@@ -3302,7 +3302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22699893baa172548afc637c4ce32521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VoterBlockName: Some Pople
+  VoterBlockName: Uncaring Person
   VoterBlockDefinition: 
   policyBias: 0.494
   cultureBias: 0.925

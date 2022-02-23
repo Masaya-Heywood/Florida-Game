@@ -81,48 +81,26 @@ public class SessionManager : MonoBehaviour
         }
     }
 
+    // for each sentiment in sentiments, do DecideHappiness for each voter block, then add up the total happiness for all floridians
     public void MockBehavior()
     {
+        var voterBlockHappinessList = new List<float> { };
+
         foreach (GameObject voters in voterBlocks)
         {
             for (int i = 0; i < 3; i++)
             {
                 float randSentiment = Random.Range(.0f, 1.0f);
                 //Debug.Log(randSentiment);
-                Debug.Log(voters.GetComponent<VoterBlockLogic>().DecideHappiness(randSentiment, i));
+                voters.GetComponent<VoterBlockLogic>().DecideHappiness(randSentiment, i);
             }
+
+            voterBlockHappinessList.Add(voters.GetComponent<VoterBlockLogic>().voterOverallHappiness);
         }
+
+        totalHappiness = voterBlockHappinessList.Sum();
+        Debug.Log(totalHappiness);
     }
-
-    // for each sentiment in sentiments, do DecideHappiness in for each voter block, then add up the total happiness for all floridians
-    //public void MockBehavior()
-    //{
-    //    var voterBlockHappinessList = new List<float> { };
-
-    //    foreach (GameObject voters in voterBlocks)
-    //    {
-    //        for(int i = 0; i < 4; i++)
-    //        {
-    //            voters.GetComponent<VoterBlockLogic>().MockLogic();
-    //        }
-
-    //        //voterBlockHappinessList.Add(voters.GetComponent<VoterBlockLogic>().voterOverallHappiness);
-
-    //        //foreach (KeyValuePair<float, int> sentiment in sentiments)
-    //        //{
-
-    //        //}
-    //    }
-
-    //    totalHappiness = voterBlockHappinessList.Sum();
-
-    //    if (hate == true)
-    //    {
-    //        totalHappiness = totalHappiness - Random.Range(-10,50);
-    //    }
-
-    //    hate = true;
-    //}
 }
 
 
