@@ -10,7 +10,7 @@ public class MathFunctions
     is *radicalization*. Radicalization determines the width of the parabola and is always negative so that the vertex is at the top. The larger the number
     of radicalization the less happiness a player gets for being distant from the voter's bias.
 
-    Since y = bias, sentiment must be compared to y. 
+    Since x is the scale for bias, x = sentiment. 
     */
     public static float VoterParabola(Vector2 happinessVertex, float inputRadical, float sentiment)
     {

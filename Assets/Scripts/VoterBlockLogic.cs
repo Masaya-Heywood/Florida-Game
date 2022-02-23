@@ -27,6 +27,12 @@ public class VoterBlockLogic : MonoBehaviour
     private void Start()
     {
         biases = new List<float>() { policyBias, cultureBias, emotionalBias };
+        radicalizationProperty = radicalizationProperty * 100;
+    }
+
+    private void Update()
+    {
+        //radicalizationProperty = radicalizationProperty * 100; //use only for testing of radicalization
     }
 
     //don't interact with the happinesss directly, use the input variable
@@ -52,9 +58,10 @@ public class VoterBlockLogic : MonoBehaviour
         }
         set
         {
-            radicalization = radicalizationProperty * 100;
+            radicalizationProperty = value * 100;
         }
     }
+
 
 
 
@@ -65,7 +72,7 @@ public class VoterBlockLogic : MonoBehaviour
         // 0 == policy, 1 == culture, 2 == emotional
         Vector2 parabolicVertex = new Vector2 (biases[typeSwitch], Mathf.RoundToInt(happinessGainCap));
         //find the distance between .n and .n, the higher the number the worse it is
-        float affinityMod = (Mathf.Abs(sentiment - biases[typeSwitch]));
+        var affinityMod = (Mathf.Abs(sentiment - biases[typeSwitch]));
 
         float testReturns = MathFunctions.VoterParabola(parabolicVertex, radicalization, sentiment);
 
@@ -73,9 +80,15 @@ public class VoterBlockLogic : MonoBehaviour
 
         //happiness = 1 - affinity;
 
+        if (affinityMod > .5)
+        {
+            Debug.Log("I shouldn't be happy");
+        } else if (affinityMod < .5)
+        {
+            Debug.Log("I should be happy");
+        }
 
-
-        return testReturns;
+            return testReturns;
     }
 
     //randomly simulate happiness changing then give it to the over all happiness

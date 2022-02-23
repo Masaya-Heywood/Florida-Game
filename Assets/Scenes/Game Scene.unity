@@ -2392,7 +2392,7 @@ MonoBehaviour:
   policyBias: 0.837
   cultureBias: 0.301
   emotionalBias: 0.116
-  radicalizationProperty: 100
+  radicalizationProperty: 52
 --- !u!1 &898431743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9167947695538521579, guid: 5db08117f3370f14482f365c6428698f, type: 3}
@@ -3239,7 +3239,7 @@ MonoBehaviour:
   policyBias: 0.226
   cultureBias: 0.469
   emotionalBias: 0.713
-  radicalizationProperty: 1
+  radicalizationProperty: 100
 --- !u!4 &1104810672
 Transform:
   m_ObjectHideFlags: 0
@@ -3307,7 +3307,7 @@ MonoBehaviour:
   policyBias: 0.494
   cultureBias: 0.925
   emotionalBias: 0.229
-  radicalizationProperty: 53
+  radicalizationProperty: 1
 --- !u!4 &1177215535
 Transform:
   m_ObjectHideFlags: 0
