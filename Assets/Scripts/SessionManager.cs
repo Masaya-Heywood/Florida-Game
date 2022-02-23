@@ -85,9 +85,10 @@ public class SessionManager : MonoBehaviour
     {
         foreach (GameObject voters in voterBlocks)
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
-                float randSentiment = Random.Range(.0f, 1f);
+                float randSentiment = Random.Range(.0f, 1.0f);
+                //Debug.Log(randSentiment);
                 Debug.Log(voters.GetComponent<VoterBlockLogic>().DecideHappiness(randSentiment, i));
             }
         }

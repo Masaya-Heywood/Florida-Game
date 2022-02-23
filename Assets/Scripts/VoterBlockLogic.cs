@@ -7,13 +7,18 @@ public class VoterBlockLogic : MonoBehaviour
     public string VoterBlockName;
     public string VoterBlockDefinition;
 
-    [Range(0,1)]
+    [Range(0, 1)]
     [SerializeField]
-    private float policyBias, cultureBias, emotionalBias, radicalization;
+    private float policyBias, cultureBias, emotionalBias;
+
+    [Range(1, 100)]
+    [SerializeField]
+    private int radicalizationProperty;
     //[/SerializeField]
     //policy where 0 is public and 1 is private intrests
     //culture where 0 is traditional and 1 is progressive
     //emotional where 0 is positive and 1 is negative
+    //radicalization is from 1 to 100, where 0 is nothing and 100 is max extremism
 
     private float happinessGainCap = 100.0f; //determines the hard cap on where players can gain happiness from DecideHappiness, base is 100
 
@@ -39,6 +44,18 @@ public class VoterBlockLogic : MonoBehaviour
         }  
     }
 
+    public int radicalization
+    {
+        get
+        {
+            return radicalizationProperty;
+        }
+        set
+        {
+            radicalization = radicalizationProperty * 100;
+        }
+    }
+
 
 
     //how far is the number from the bias? use this number to influence happiness 
@@ -46,10 +63,11 @@ public class VoterBlockLogic : MonoBehaviour
     public float DecideHappiness(float sentiment, int typeSwitch)
     {
         // 0 == policy, 1 == culture, 2 == emotional
-        Vector2 parabolicVertex = new Vector2 (Mathf.RoundToInt(happinessGainCap), biases[typeSwitch]);
+        Vector2 parabolicVertex = new Vector2 (biases[typeSwitch], Mathf.RoundToInt(happinessGainCap));
         //find the distance between .n and .n, the higher the number the worse it is
         float affinityMod = (Mathf.Abs(sentiment - biases[typeSwitch]));
-        voterOverallHappiness = MathFunctions.VoterParabola(parabolicVertex, 2.0f);
+
+        float testReturns = MathFunctions.VoterParabola(parabolicVertex, radicalization, sentiment);
 
 
 
@@ -57,7 +75,7 @@ public class VoterBlockLogic : MonoBehaviour
 
 
 
-        return voterOverallHappiness;
+        return testReturns;
     }
 
     //randomly simulate happiness changing then give it to the over all happiness
